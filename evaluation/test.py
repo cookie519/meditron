@@ -260,8 +260,8 @@ def main(args):
         logging.info(f"/pure-mlo-scratch/trial-runs/{args.checkpoint_name}")
         kwargs["download_dir"] = f"/pure-mlo-scratch/trial-runs/{args.checkpoint_name}"
 
-    if "7b" in args.checkpoint:
-        kwargs["tensor_parallel_size"] = 4
+    #if "7b" in args.checkpoint:
+    #   kwargs["tensor_parallel_size"] = 4
 
     client = vllm.LLM(**kwargs)
 
