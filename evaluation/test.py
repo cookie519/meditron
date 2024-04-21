@@ -301,11 +301,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--checkpoint',
                         type=str,
-                        default="epfl-llm/meditron-7b",
+                        default="/scratch/gpfs/jx0800/meditron-7b",
                         help="Path to the checkpoint to run inference on")
     parser.add_argument('--checkpoint_name',
                         type=str,
-                        default="meditron-70b",
+                        default="meditron-7b",
                         help="Name of the checkpoint to run inference on")
     parser.add_argument('--benchmark',
                         type=str,
