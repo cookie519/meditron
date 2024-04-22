@@ -253,7 +253,7 @@ def main(args):
     kwargs = {
         "model": args.checkpoint,
         "tokenizer": args.checkpoint,
-        "trust_remote_code": True,
+        "trust_remote_code": False,
         "max_num_seqs": 1024,
         "tensor_parallel_size": torch.cuda.device_count(),
     }
