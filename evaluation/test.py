@@ -265,9 +265,9 @@ def main(args):
 
     if "7b" in args.checkpoint:
        kwargs["tensor_parallel_size"] = 4
-
+    print("vllm.LLM()")
     client = vllm.LLM(**kwargs)
-
+    print("successfully loaded LLM")
     logging.info(f'Running inference on {args.benchmark} for {len(data_obj.test_data)} samples')
     if args.shots > 0 and args.multi_seed:
         predictions = pd.DataFrame()
