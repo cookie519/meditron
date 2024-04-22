@@ -12,8 +12,11 @@ from transformers import AutoTokenizer, LlamaTokenizer, AutoModelForCausalLM
 
 from benchmarks import benchmark_factory, load_instruction
 
+#logger = logging.getLogger("meditron.evaluation.inference")
+#logger.setLevel(logging.INFO)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("meditron.evaluation.inference")
-logger.setLevel(logging.INFO)
+logger.info("This is an info message")  # This will now be printed to the console
 
 INSTRUCTIONS = {
     'truthfulqa': {'task': 'mcq', 'partition': 'validation', 'instructions': 'truthfulqa', 'cot_col': 'exp'},
