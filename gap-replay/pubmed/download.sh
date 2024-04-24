@@ -11,7 +11,7 @@
 # NOTE: You will need to provide your Semantic Scholar API key.  
 python pubmed/load.py \
        --dataset all \
-       --data_path "~/meditron/data" \
+       --data_path "/scratch/gpfs/jx0800/data" \
        --key_path pubmed/keys.json 
 
 # 2. Deduplication: remove abstracts for which we already have full-text articles
