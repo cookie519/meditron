@@ -234,7 +234,7 @@ class StarcoderDataset(Collection):
     def __init__(self, ignore_git: bool = False, jupyter_only: bool = False,
             cache_dir: Optional[Path] = None, streaming: bool = False):
         # get langlist
-        with open("starcoder.txt") as f:
+        with open("./replay/starcoder.txt") as f:
             langs = list(map(lambda line: line.strip(), f))
         if ignore_git:
             langs = list(filter(lambda lang: "git" not in lang, langs))
