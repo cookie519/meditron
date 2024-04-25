@@ -17,32 +17,32 @@ python pubmed/load.py \
 # 2. Deduplication: remove abstracts for which we already have full-text articles
 python pubmed/process.py \
        --deduplicate\
-       --source_path /data/abstracts-PubMed_metadata.jsonl \
-       --save_path /data/abstracts-PubMed_dedup.jsonl
+       --source_path /scratch/gpfs/jx0800/data/abstracts-PubMed_metadata.jsonl \
+       --save_path /scratch/gpfs/jx0800/data/abstracts-PubMed_dedup.jsonl
 
 # 3. Clean PubMed abstracts and full-text articles
 python pubmed/process.py \
        --dataset s2orc \
-       --source_path /data/s2orc-PubMed_metadata.jsonl \
-       --save_path /data/s2orc-PubMed_processed.jsonl
+       --source_path /scratch/gpfs/jx0800/data/s2orc-PubMed_metadata.jsonl \
+       --save_path /scratch/gpfs/jx0800/data/s2orc-PubMed_processed.jsonl
 
 python process.py \
        --dataset abstracts \
-       --source_path /data/abstracts-PubMed_dedup.jsonl \
-       --save_path /data/abstracts-PubMed_processed.jsonl
+       --source_path /scratch/gpfs/jx0800/data/abstracts-PubMed_dedup.jsonl \
+       --save_path /scratch/gpfs/jx0800/data/abstracts-PubMed_processed.jsonl
 
 # 4. Train-test split for each dataset
 python pubmed/process.py \
        --train_test_split \
-       --source_path /data/s2orc-PubMed_processed.jsonl \
+       --source_path /scratch/gpfs/jx0800/data/s2orc-PubMed_processed.jsonl \
        --split_ratio 0.03 \
 
 python pubmed/process.py \
        --train_test_split \
-       --source_path /data/abstracts-PubMed_processed.jsonl \
+       --source_path /scratch/gpfs/jx0800/data/abstracts-PubMed_processed.jsonl \
        --split_ratio 0.03 \
 
 python pubmed/process.py \
        --train_test_split \
-       --source_path /data/guidelines.jsonl \
+       --source_path /scratch/gpfs/jx0800/data/guidelines.jsonl \
        --split_ratio 0.05 \
