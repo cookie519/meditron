@@ -1,4 +1,5 @@
-from transformers import pipeline, AutoModelForTokenClassification, AutoTokenizer
+from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
+
 
 model = AutoModelForCausalLM.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
