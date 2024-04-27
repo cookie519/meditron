@@ -7,11 +7,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = AutoModelForCausalLM.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 
-# Move the model to GPU and parallelize
-if torch.cuda.device_count() > 1:
-    print(f"Using {torch.cuda.device_count()} GPUs!")
-    model = torch.nn.DataParallel(model)
-
 model.to(device)
 
 #recognizer = pipeline("question-answering", model=model, tokenizer=tokenizer) #text-generation
