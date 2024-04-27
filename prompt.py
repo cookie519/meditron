@@ -1,8 +1,19 @@
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
+import torch
 
+# Ensure CUDA (GPU support) is available and specify the device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = AutoModelForCausalLM.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
+
+# Move the model to GPU and parallelize
+if torch.cuda.device_count() > 1:
+    print(f"Using {torch.cuda.device_count()} GPUs!")
+    model = torch.nn.DataParallel(model)
+
+model.to(device)
+
 #recognizer = pipeline("question-answering", model=model, tokenizer=tokenizer) #text-generation
 
 #generated_text = recognizer(prompt, max_length=100, temperature=1, top_k=0, top_p=0)
@@ -21,8 +32,9 @@ Rare diseases are defined as diseases that affect a small number of individuals.
 ### Output: 
 """
 inputs = tokenizer(prompt, return_tensors="pt")
+inputs = {k: v.to(device) for k, v in inputs.items()}
 
 # Generate
-generate_ids = model.generate(inputs.input_ids, max_new_tokens=100) #max_length=200
+generate_ids = model.generate(**inputs, max_new_tokens=100) #max_length=200 inputs.input_ids
 out = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 print(out)
