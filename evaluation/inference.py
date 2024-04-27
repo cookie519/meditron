@@ -12,6 +12,7 @@ from transformers import AutoTokenizer, LlamaTokenizer
 
 from benchmarks import benchmark_factory, load_instruction
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("meditron.evaluation.inference")
 logger.setLevel(logging.INFO)
 
@@ -297,6 +298,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--checkpoint',
+                        default="/scratch/gpfs/jx0800/meditron-7b"
                         type=str,
                         help="Path to the checkpoint to run inference on")
     parser.add_argument('--checkpoint_name',
