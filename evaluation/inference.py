@@ -298,7 +298,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--checkpoint',
-                        default="/scratch/gpfs/jx0800/meditron-7b"
+                        default="/scratch/gpfs/jx0800/meditron-7b",
                         type=str,
                         help="Path to the checkpoint to run inference on")
     parser.add_argument('--checkpoint_name',
