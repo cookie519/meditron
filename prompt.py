@@ -3,7 +3,7 @@ from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
 
 model = AutoModelForCausalLM.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
-recognizer = pipeline("text-generation", model=model, tokenizer=tokenizer)
+recognizer = pipeline("question-answering", model=model, tokenizer=tokenizer) #text-generation
 
 prompt = """what is diabete"""
 
