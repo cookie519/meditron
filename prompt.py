@@ -23,6 +23,6 @@ Rare diseases are defined as diseases that affect a small number of individuals.
 inputs = tokenizer(prompt, return_tensors="pt")
 
 # Generate
-generate_ids = model.generate(inputs.input_ids, max_length=200)
+generate_ids = model.generate(inputs.input_ids, max_new_tokens=100) #max_length=200
 out = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 print(out)
