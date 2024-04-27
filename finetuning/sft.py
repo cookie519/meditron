@@ -224,10 +224,10 @@ if __name__ == "__main__":
     parser.add_argument("--checkpoint", default="baseline", choices=[name for name, size in CHECKPOINTS],
                         help="Name of the model to finetune")
     parser.add_argument("--save_checkpoint_dir", type=str,
-                        default="/pure-mlo-scratch/alhernan/megatron-data/checkpoints/instructed/",
+                        default="/home/jx0800/meditron/checkpoints/instructed/",
                         help="Directory to save the checkpoint")
     parser.add_argument("--tokenized_data_dir", type=str,
-                        default="/pure-mlo-scratch/zechen/meditron/benchmarks/ft_preprocessed/tokenized/",
+                        default="/home/jx0800/meditron/benchmarks/ft_preprocessed/tokenized/",
                         help="Directory to save the tokenized data")
     parser.add_argument("--size", default=7, choices=[7, 13, 70], type=int,
                         help="Size of the model to finetune")
