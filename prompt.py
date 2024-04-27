@@ -9,7 +9,7 @@ tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 #print(generated_text[0]["generated_text"])
 
 prompt = "what is diabetes?"
-inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True)
+inputs = tokenizer(prompt, return_tensors="pt")
 
 # Generate
 generate_ids = model.generate(inputs.input_ids, max_length=200)
