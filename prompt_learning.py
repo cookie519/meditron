@@ -20,7 +20,8 @@ model.to(device)
 ##################################################################################
 
 # Read in test data
-dataset = load_dataset("csv", data_files={"test": "/home/jx0800/meditron/data/test.csv"})
+dataset = load_dataset("/scratch/gpfs/jx0800/databricks-dolly-15k", split="train")
+# dataset = load_dataset("csv", data_files={"test": "/home/jx0800/meditron/data/test.csv"})
 #input_file_test = '/home/jx0800/meditron/data/test_dat_category_all.xlsx'
 #complete_df_test = pd.read_excel(input_file_test, keep_default_na = False, na_values = '')
 print(dataset)
