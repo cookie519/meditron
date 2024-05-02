@@ -26,8 +26,8 @@ bnb_config = BitsAndBytesConfig(
 # Load model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
     "/scratch/gpfs/jx0800/meditron-7b",
-    #quantization_config=bnb_config,
-    torch_dtype=torch.float16,
+    quantization_config=bnb_config,
+    #torch_dtype=torch.float16,
     use_cache=False,
     use_flash_attention_2=True,
     device_map="auto",
@@ -53,9 +53,9 @@ peft_config = LoraConfig(
 )
 
 # prepare model for training
-# model = prepare_model_for_kbit_training(model)
-#model = get_peft_model(model, peft_config)
-#print("model prepared")
+model = prepare_model_for_kbit_training(model)
+model = get_peft_model(model, peft_config)
+print("model prepared")
 
 from transformers import TrainingArguments
  
