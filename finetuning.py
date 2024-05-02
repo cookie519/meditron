@@ -53,7 +53,7 @@ peft_config = LoraConfig(
 )
 
 # prepare model for training
-model = prepare_model_for_kbit_training(model)
+# model = prepare_model_for_kbit_training(model)
 model = get_peft_model(model, peft_config)
 print("model prepared")
 
