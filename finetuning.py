@@ -72,7 +72,7 @@ args = TrainingArguments(
     max_grad_norm=0.3,
     warmup_ratio=0.03,
     lr_scheduler_type="constant",
-    disable_tqdm=True # disable tqdm since with packing values are in correct
+    disable_tqdm=True, # disable tqdm since with packing values are in correct
 	report_to = "tensorboard"
 )
 
