@@ -9,10 +9,11 @@ import pandas as pd
 #import re
 
 # Ensure CUDA (GPU support) is available and specify the device
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = AutoModelForCausalLM.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
+model.to(device)
 
 ##################################################################################
 #                             Zero-shot Structured                               #
