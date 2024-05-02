@@ -19,18 +19,11 @@ model.to(device)
 #                             Zero-shot Structured                               #
 ##################################################################################
 
-# ChatGPT Zero-shot API function
-def zero_shot_structured(note, prompt):
-
-    input_ids = tokenizer(f"{prompt}\n {note}\n ### Output:", return_tensors="pt", truncation=True).input_ids.cuda()
-    outputs = model.generate(input_ids=input_ids, max_new_tokens=50, do_sample=True, top_p=0.9, temperature=0.9)
-    out = tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0][len(prompt):]
-    
-    return out
-
 # Read in test data
-input_file_test = '/home/jx0800/meditron/data/test_dat_category_all.xlsx'
-complete_df_test = pd.read_excel(input_file_test, keep_default_na = False, na_values = '')
+dataset = load_dataset("/home/jx0800/meditron/data/test.csv")
+#input_file_test = '/home/jx0800/meditron/data/test_dat_category_all.xlsx'
+#complete_df_test = pd.read_excel(input_file_test, keep_default_na = False, na_values = '')
+print(dataset)
 
 # Zero-shot learning
 for idx, row in list(complete_df_test.iterrows()):
@@ -66,14 +59,22 @@ for idx, row in list(complete_df_test.iterrows()):
                     '''
     complete_df_test.at[idx, 'prompt'] = ("").join(prompt)
 
-    out = zero_shot_structured(note, prompt)
+    # out = zero_shot_structured(note, prompt)
     
     print(idx)
     print(f"Prompt:\n{prompt} \n {note} \n ### Output: \n")
-    print(f"Generated instruction:\n{out}")
+    # print(f"Generated instruction:\n{out}")
     print(f"Ground truth:\n{row['gold_All']}")
 
     complete_df_test.at[idx, 'output'] = ("").join(out)
     
+def zero_shot_structured(note, prompt):
+
+    input_ids = tokenizer(f"{prompt}\n {note}\n ### Output:", return_tensors="pt", truncation=True).input_ids.cuda()
+    outputs = model.generate(input_ids=input_ids, max_new_tokens=50, do_sample=True, top_p=0.9, temperature=0.9)
+    out = tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0][len(prompt):]
+    
+    return out
+
 complete_df_test.to_excel('/home/jx0800/meditron/data/zero_shot_structured_output.xlsx', sheet_name = 'Sheet1')
 
