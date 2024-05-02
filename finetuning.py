@@ -98,5 +98,5 @@ trainer.train() # there will not be a progress bar since tqdm is disabled
  
 # save model
 trainer.save_model()
-print("model saved"）
+print("model saved")
 
