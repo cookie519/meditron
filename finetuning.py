@@ -33,6 +33,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto",
 )
 model.config.pretraining_tp = 1
+model.train()
 print("model loaded")
  
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
