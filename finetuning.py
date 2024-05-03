@@ -58,7 +58,7 @@ model = prepare_model_for_kbit_training(model)
 model = get_peft_model(model, peft_config)
 print("model prepared")
 
-'''
+
 from transformers import TrainingArguments
  
 args = TrainingArguments(
@@ -96,7 +96,7 @@ trainer = SFTTrainer(
     args=args,
 )
 print("trainer set up")
-
+'''
 # train
 print("training start")
 trainer.train() # there will not be a progress bar since tqdm is disabled
