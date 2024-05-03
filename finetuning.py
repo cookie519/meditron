@@ -28,7 +28,7 @@ model = AutoModelForCausalLM.from_pretrained(
     "/scratch/gpfs/jx0800/meditron-7b",
     quantization_config=bnb_config,
     use_cache=False,
-    use_flash_attention_2=False,
+    attn_implementation="flash_attention_2",
     device_map="auto",
 )
 model.config.pretraining_tp = 1
