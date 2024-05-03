@@ -23,9 +23,11 @@ bnb_config = BitsAndBytesConfig(
     load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16
 )
 
+model_id = "/scratch/gpfs/jx0800/Meta-Llama-3-8B-Instruct"
+
 # Load model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
-    "/scratch/gpfs/jx0800/BioMistral-7B",
+    model_id,
     quantization_config=bnb_config,
     use_cache=False,
     attn_implementation="flash_attention_2",
@@ -34,7 +36,7 @@ model = AutoModelForCausalLM.from_pretrained(
 model.config.pretraining_tp = 1
 print("model loaded")
  
-tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
+tokenizer = AutoTokenizer.from_pretrained(model_id)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
 print("tokenizer loaded")
