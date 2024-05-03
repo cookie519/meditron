@@ -51,7 +51,7 @@ peft_config = LoraConfig(
 )
 
 # prepare model for training
-# model.gradient_checkpointing_enable()
+model.gradient_checkpointing_enable()
 model = prepare_model_for_kbit_training(model)
 model = get_peft_model(model, peft_config)
 print("model prepared")
