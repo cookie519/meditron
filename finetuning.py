@@ -76,7 +76,7 @@ args = TrainingArguments(
     disable_tqdm=True, # disable tqdm since with packing values are in correct
     report_to = "none" #"tensorboard"
 )
-
+print("args ready")
 
 from trl import SFTTrainer
  
