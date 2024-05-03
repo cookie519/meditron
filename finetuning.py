@@ -26,10 +26,10 @@ bnb_config = BitsAndBytesConfig(
 # Load model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
     "/scratch/gpfs/jx0800/meditron-7b",
-    quantization_config=bnb_config,
+    #quantization_config=bnb_config,
     use_cache=False,
-    attn_implementation="flash_attention_2",
-    device_map="auto",
+    #attn_implementation="flash_attention_2",
+    #device_map="auto",
 )
 model.config.pretraining_tp = 1
 print("model loaded")
