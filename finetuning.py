@@ -23,7 +23,7 @@ bnb_config = BitsAndBytesConfig(
     load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16
 )
 
-model_id = "/scratch/gpfs/jx0800/Meta-Llama-3-8B-Instruct"
+model_id = "/scratch/gpfs/jx0800/meditron-7b" # Meta-Llama-3-8B-Instruct
 
 # Load model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
@@ -58,6 +58,7 @@ model = prepare_model_for_kbit_training(model)
 model = get_peft_model(model, peft_config)
 print("model prepared")
 
+'''
 from transformers import TrainingArguments
  
 args = TrainingArguments(
@@ -103,4 +104,4 @@ trainer.train() # there will not be a progress bar since tqdm is disabled
 # save model
 trainer.save_model()
 print("model saved")
-
+'''
