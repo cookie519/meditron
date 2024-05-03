@@ -18,36 +18,20 @@ Use the Input below to create an instruction, which could have been used to gene
 ### Response:
 {sample['instruction']}
 """
-
-'''  
+ 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16
-)'''
-
-# Compute dtype for 4-bit base models
-bnb_4bit_compute_dtype = "float16"
-
-# Load tokenizer and model with QLoRA configuration
-compute_dtype = getattr(torch, bnb_4bit_compute_dtype)
-
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=compute_dtype,
-    bnb_4bit_use_double_quant=False,
 )
 
-device_map = {"": 0}
 # Load model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
     "/scratch/gpfs/jx0800/meditron-7b",
     quantization_config=bnb_config,
-    #torch_dtype=torch.float16,
     use_cache=False,
-    use_flash_attention_2=True,
-    device_map=device_map,
+    #use_flash_attention_2=True,
+    device_map="auto",
 )
-#model.config.pretraining_tp = 1
+model.config.pretraining_tp = 1
 print("model loaded")
  
 tokenizer = AutoTokenizer.from_pretrained("/scratch/gpfs/jx0800/meditron-7b")
