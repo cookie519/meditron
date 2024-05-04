@@ -17,29 +17,25 @@ def format_instruction(sample):
 Extract the exact name or names of rare diseases from the input text and output them in a list.
 ### Definition:
 Rare diseases are defined as diseases that affect a small number of people compared to the general population.
-### Input Text: 
-'''
+### Input Text: '''
     elif sample['category'] == 'DISEASE':
         prompt = '''### Task: 
 Extract the exact name or names of diseases from the input text and output them in a list.
 ### Definition:
 Diseases are defined as abnormal conditions resulting from various causes, such as infection, inflammation, environmental factors, or genetic defect, and characterized by an identifiable group of signs, symptoms, or both.
-### Input Text: 
-'''
+### Input Text: '''
     elif sample['category'] == 'SYMPTOM':
         prompt = '''### Task: 
 Extract the exact name or names of symptoms from the input text and output them in a list.
 ### Definition:
 Symptoms are defined as physical or mental problems that cannot be measured from tests or observed by a doctor.
-### Input Text: 
-'''
+### Input Text: '''
     elif sample['category'] == 'SIGN':
         prompt = '''### Task: 
 Extract the exact name or names of signs from the input text and output them in a list.
 ### Definition:
 Signs are defined as physical or mental problems that can be measured from tests or observed by a doctor.
-### Input Text: 
- '''
+### Input Text: '''
     return f"""{prompt}
 {sample['context']}
 ### Output:
