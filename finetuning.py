@@ -96,7 +96,7 @@ trainer = SFTTrainer(
     args=args,
 )
 print("trainer set up")
-'''
+
 # train
 print("training start")
 trainer.train() # there will not be a progress bar since tqdm is disabled
@@ -104,4 +104,4 @@ trainer.train() # there will not be a progress bar since tqdm is disabled
 # save model
 trainer.save_model()
 print("model saved")
-'''
+
