@@ -39,8 +39,7 @@ def format_instruction(sample):
                     Signs are defined as physical or mental problems that can be measured from tests or observed by a doctor.
                     ### Input Text: 
                     '''
-
-	return f"""{prompt}
+    return f"""{prompt}
             {sample['context']}
             ### Output:
             {sample['response']}
