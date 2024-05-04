@@ -63,7 +63,7 @@ from transformers import TrainingArguments
  
 args = TrainingArguments(
     output_dir="/scratch/gpfs/jx0800/finetuned",
-    num_train_epochs=3,
+    num_train_epochs=1,
     per_device_train_batch_size=6,
     gradient_accumulation_steps=2,
     gradient_checkpointing=True,
