@@ -1,8 +1,8 @@
 import importlib
 import transformers
 
-#print("Reloading llama model, unpatching flash attention")
-#importlib.reload(transformers.models.llama.modeling_llama)
+print("Reloading llama model, unpatching flash attention")
+importlib.reload(transformers.models.llama.modeling_llama)
  
 import torch
 from peft import AutoPeftModelForCausalLM
