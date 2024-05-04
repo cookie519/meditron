@@ -6,7 +6,7 @@ import pandas as pd
 
 
 #dataset = load_dataset("/scratch/gpfs/jx0800/databricks-dolly-15k", split="train")
-dataset = load_dataset("csv", data_files="/scratch/gpfs/jx0800/train_out.csv")
+dataset = load_dataset("csv", data_files="/scratch/gpfs/jx0800/data/train_out.csv")
 dataset = dataset.shuffle(seed=42)
 print(dataset)
 
