@@ -1,3 +1,8 @@
+## preprocess data
+use data/preprocess.py to covert data from Sam into the format needed.
+
+
+
 <img width=40% src="figures/meditron_LOGO.png" alt="MediTron logo" title="Meditron-logo">
 
 Meditron is a suite of open-source medical Large Language Models (LLMs).
