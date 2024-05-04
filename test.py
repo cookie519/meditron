@@ -1,5 +1,8 @@
-from utils.llama_patch import unplace_flash_attn_with_attn
-unplace_flash_attn_with_attn()
+import importlib
+import transformers
+
+print("Reloading llama model, unpatching flash attention")
+importlib.reload(transformers.models.llama.modeling_llama)
  
 import torch
 from peft import AutoPeftModelForCausalLM
