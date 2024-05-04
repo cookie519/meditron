@@ -5,19 +5,45 @@ from datasets import load_dataset
 import pandas as pd
 
 
-dataset = load_dataset("/scratch/gpfs/jx0800/databricks-dolly-15k", split="train")
+#dataset = load_dataset("/scratch/gpfs/jx0800/databricks-dolly-15k", split="train")
+dataset = load_dataset("csv", data_files="/scratch/gpfs/jx0800/train_out.csv")
 print(dataset)
 
 def format_instruction(sample):
-	return f"""### Instruction:
-Use the Input below to create an instruction, which could have been used to generate the input using an LLM.
- 
-### Input:
-{sample['response']}
- 
-### Response:
-{sample['instruction']}
-"""
+    if sample['category'] == 'RAREDISEASE':
+        prompt = '''### Task: 
+                    Extract the exact name or names of rare diseases from the input text and output them in a list.
+                    ### Definition:
+                    Rare diseases are defined as diseases that affect a small number of people compared to the general population.
+                    ### Input Text: 
+                    '''
+    elif sample['category'] == 'DISEASE':
+        prompt = '''### Task: 
+                    Extract the exact name or names of diseases from the input text and output them in a list.
+                    ### Definition:
+                    Diseases are defined as abnormal conditions resulting from various causes, such as infection, inflammation, environmental factors, or genetic defect, and characterized by an identifiable group of signs, symptoms, or both.
+                    ### Input Text: 
+                    '''
+    elif sample['category'] == 'SYMPTOM':
+        prompt = '''### Task: 
+                    Extract the exact name or names of symptoms from the input text and output them in a list.
+                    ### Definition:
+                    Symptoms are defined as physical or mental problems that cannot be measured from tests or observed by a doctor.
+                    ### Input Text: 
+                    '''
+    elif sample['category'] == 'SIGN':
+        prompt = '''### Task: 
+                    Extract the exact name or names of signs from the input text and output them in a list.
+                    ### Definition:
+                    Signs are defined as physical or mental problems that can be measured from tests or observed by a doctor.
+                    ### Input Text: 
+                    '''
+
+	return f"""{prompt}
+            {sample['context']}
+            ### Output:
+            {sample['response']}
+            """
  
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16
@@ -47,7 +73,7 @@ from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 peft_config = LoraConfig(
         lora_alpha=16,
         lora_dropout=0.1,
-        r=64,
+        r=4,
         bias="none",
         task_type="CAUSAL_LM",
 )
