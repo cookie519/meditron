@@ -1,12 +1,13 @@
 import importlib
 import transformers
+import torch
+from peft import AutoPeftModelForCausalLM
+from transformers import AutoTokenizer
+import pandas as pd
 
 print("Reloading llama model, unpatching flash attention")
 importlib.reload(transformers.models.llama.modeling_llama)
  
-import torch
-from peft import AutoPeftModelForCausalLM
-from transformers import AutoTokenizer
 # load base LLM model and tokenizer
 output_dir = "/scratch/gpfs/jx0800/finetuned"
 model = AutoPeftModelForCausalLM.from_pretrained(
@@ -26,8 +27,6 @@ dataset = load_dataset("csv", data_files="/scratch/gpfs/jx0800/data/test_out.csv
 dataset = dataset['train']
 dataset = dataset.shuffle(seed=42)
 print(dataset)
-
-sample = dataset[randrange(len(dataset))]
 
 def get_prompt(sample):
     if sample['category'] == 'RAREDISEASE':
@@ -57,14 +56,23 @@ Signs are defined as physical or mental problems that can be measured from tests
     return f"""{prompt}
 {sample['context']}
 ### Output:"""
- 
-prompt = get_prompt(sample)
 
 
-input_ids = tokenizer(prompt, return_tensors="pt", truncation=True).input_ids.cuda()
-# with torch.inference_mode():
-outputs = model.generate(input_ids=input_ids, max_new_tokens=200, do_sample=True, top_p=0.9,temperature=0.9)
- 
-print(f"Prompt:\n{prompt}\n")
-print(f"Generated instruction:\n{tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0][len(prompt):]}")
-print(f"Ground truth:\n{sample['response']}")
+results = []
+for sample in dataset:
+    prompt = get_prompt(sample)
+    input_ids = tokenizer(prompt, return_tensors="pt", truncation=True).input_ids.cuda()
+    outputs = model.generate(input_ids=input_ids, max_new_tokens=200, do_sample=True, top_p=0.9, temperature=0.9)
+    generated = tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0][len(prompt):]
+    results.append(generated)
+    print(sample['response'])
+
+# Saving results back to CSV
+out = pd.DataFrame(dataset)
+out['output'] = results
+out.to_csv("/scratch/gpfs/jx0800/data/test_out1.csv", index=False)
+print("All data processed and saved.")
+
+#print(f"Prompt:\n{prompt}\n")
+#print(f"Generated instruction:\n{tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0][len(prompt):]}")
+#print(f"Ground truth:\n{sample['response']}")
