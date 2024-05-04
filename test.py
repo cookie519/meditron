@@ -7,12 +7,9 @@ importlib.reload(transformers.models.llama.modeling_llama)
 import torch
 from peft import AutoPeftModelForCausalLM
 from transformers import AutoTokenizer
- 
-args.output_dir = "/scratch/gpfs/jx0800/finetuned"
- 
 # load base LLM model and tokenizer
 model = AutoPeftModelForCausalLM.from_pretrained(
-    args.output_dir,
+    "/scratch/gpfs/jx0800/finetuned",
     low_cpu_mem_usage=True,
     torch_dtype=torch.float16,
     load_in_4bit=True,
