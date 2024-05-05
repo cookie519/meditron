@@ -72,7 +72,7 @@ from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 peft_config = LoraConfig(
         lora_alpha=16,
         lora_dropout=0.1,
-        r=4,
+        r=8,
         bias="none",
         task_type="CAUSAL_LM",
 )
@@ -87,7 +87,7 @@ print("model prepared")
 from transformers import TrainingArguments
  
 args = TrainingArguments(
-    output_dir="/scratch/gpfs/jx0800/finetuned",
+    output_dir="/scratch/gpfs/jx0800/finetuned_r8",
     num_train_epochs=20,
     per_device_train_batch_size=6,
     gradient_accumulation_steps=2,
