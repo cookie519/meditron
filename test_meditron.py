@@ -2,21 +2,21 @@ import importlib
 import transformers
 import torch
 from peft import AutoPeftModelForCausalLM
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 import pandas as pd
 
 print("Reloading llama model, unpatching flash attention")
 importlib.reload(transformers.models.llama.modeling_llama)
  
 # load base LLM model and tokenizer
-output_dir = "/scratch/gpfs/jx0800/meditron-7b"
-model = AutoPeftModelForCausalLM.from_pretrained(
-    output_dir,
+model_dir = "/scratch/gpfs/jx0800/meditron-7b"
+model = AutoModelForCausalLM.from_pretrained(
+    model_dir,
     low_cpu_mem_usage=True,
     torch_dtype=torch.float16,
     load_in_4bit=True,
 )
-tokenizer = AutoTokenizer.from_pretrained(output_dir, max_length=2048)
+tokenizer = AutoTokenizer.from_pretrained(model_dir, max_length=2048)
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 
