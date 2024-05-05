@@ -65,7 +65,7 @@ Signs are defined as physical or mental problems that can be measured from tests
 {example['context']}
 ### Output:
 {example['response']}
-### Input Test:
+### Input Text:
 {sample['context']}"""
 
 sample = dataset[randrange(len(dataset))]
