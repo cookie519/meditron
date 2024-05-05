@@ -18,9 +18,9 @@ model = AutoModelForCausalLM.from_pretrained(
     load_in_4bit=True,
 )
 tokenizer = AutoTokenizer.from_pretrained(model_dir, max_length=2048)
-if tokenizer.pad_token is None:
-    print("tokenizer.pad_token = tokenizer.eos_token")
-    tokenizer.pad_token = tokenizer.eos_token
+#if tokenizer.pad_token is None:
+#    print("tokenizer.pad_token = tokenizer.eos_token")
+tokenizer.pad_token = tokenizer.eos_token
 
 
 from datasets import load_dataset
