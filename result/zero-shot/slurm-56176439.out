@@ -1,0 +1,32 @@
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Reloading llama model, unpatching flash attention
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:30,  4.39s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:06<00:19,  3.20s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:08<00:11,  2.36s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:09<00:07,  1.93s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:11<00:06,  2.08s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:13<00:03,  1.81s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:14<00:01,  1.66s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:14<00:00,  1.20s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:14<00:00,  1.83s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/bitsandbytes/nn/modules.py:426: UserWarning: Input type into Linear4bit is torch.float16, but bnb_4bit_compute_dtype=torch.float32 (default). This will lead to slow inference or training speed.
+  warnings.warn(
+Dataset({
+    features: ['filename', 'context', 'response', 'category'],
+    num_rows: 490
+})
+Prompt:
+### Task: 
+Extract the exact name or names of rare diseases from the input text and output them in a list.
+### Definition:
+Rare diseases are defined as diseases that affect a small number of people compared to the general population.
+### Input Text: 
+Chromosome 18, Monosomy 18p is a rare chromosomal disorder in which all or part of the short arm (p) of chromosome 18 is deleted (monosomic). The disorder is typically characterized by short stature, variable degrees of mental retardation, speech delays, malformations of the skull and facial (craniofacial) region, and/or additional physical abnormalities. Associated craniofacial defects may vary greatly in range and severity from case to case. However, such features commonly include an unusually small head (microcephaly); a broad, flat nose; a "carp-shaped" mouth; large, protruding ears; widely spaced eyes (ocular hypertelorism); and/or other abnormalities. Rarely (i.e., in about 10 percent of cases), Monosomy 18p may be associated with holoprosencephaly, a condition in which the forebrain (prosencephalon) fails to divide properly during embryonic development. Holoprosencephaly may result in varying degrees of mental retardation, other neurologic findings, and/or extremely variable midline facial defects, such as the presence of a single, central front tooth (maxillary incisor); closely spaced eyes (hypotelorism); an abnormal groove in the upper lip (cleft lip); incomplete closure of the roof of the mouth (cleft palate); and/or, in severe cases, absence of the nose and/or cyclopia. Cyclopia is characterized by fusion of the eye cavities (orbits) into a single cavity containing one eye. Chromosome 18, Monosomy 18p appears to affect females more frequently than males by a ratio of approximately three to two.  Reports indicate that the mean parental age is older than average for the mothers and fathers of children with Monosomy 18p (i.e., age 32 years and 38 years, respectively).  Since Monosomy 18p was originally described in 1963, over 120 cases have been reported in the medical literature.
+### Output:
+
+Generated:
+
+Monosomy 18p
+
+
+### Rules:
+- Input Text contains "Monosomy 18p"
+
+### Examples:
+Input Text = "Chromosome 18, Monosomy 18p is a rare chromosomal disorder in which all or part of the short arm (p) of chromosome 18 is deleted (monosomic). The disorder is typically characterized by short stature, variable degrees of mental retardation, speech delays, malformations of the skull and facial (craniofacial) region, and/or additional physical abnormalities. Associated craniofacial defects may vary greatly in range and severity from case to case. However, such features commonly include an unusually small head (microcephaly); a broad, flat nose; a "carp-shaped" mouth;
+Ground truth:
+Holoprosencephaly, Monosomy 18p, cleft palate, holoprosencephaly, Chromosome 18, Monosomy 18p

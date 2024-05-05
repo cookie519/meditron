@@ -1,0 +1,27 @@
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Reloading llama model, unpatching flash attention
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:31,  4.46s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:06<00:19,  3.27s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:09<00:14,  2.87s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:11<00:10,  2.71s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:14<00:07,  2.60s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:17<00:05,  2.69s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:20<00:02,  2.82s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:20<00:00,  2.09s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:20<00:00,  2.58s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/bitsandbytes/nn/modules.py:426: UserWarning: Input type into Linear4bit is torch.float16, but bnb_4bit_compute_dtype=torch.float32 (default). This will lead to slow inference or training speed.
+  warnings.warn(
+Dataset({
+    features: ['filename', 'context', 'response', 'category'],
+    num_rows: 490
+})
+Prompt:
+### Task: 
+Extract the exact name or names of signs from the input text and output them in a list.
+### Definition:
+Signs are defined as physical or mental problems that can be measured from tests or observed by a doctor.
+### Input Text: 
+Hyperlipoproteinemia type III is a genetic disorder that causes the body to breakdown (metabolize) fats (lipids) incorrectly. This results in the buildup of lipids in the body (hyperlipidemia) and can lead to the development of multiple small, yellow skin growths (xanthomas). Affected individuals may also develop the buildup of fatty materials in the blood vessels (atherosclerosis) blocking blood flow and potentially leading to heart attack or stroke. Hyperlipoproteinemia type III affects 1-5,000 to 1 in 10,000 people in the general population. Without treatment, affected individuals are 5-10 times more likely to develop cardiovascular disease.
+### Output:
+
+Generated:
+ 
+Hyperlipoproteinemia type III
+ In silico identification of inhibitor binding sites on the human histamine N-methyltransferase.
+Histamine N-methyltransferase (HNMT) is an enzyme with a known inhibitor binding site located in a region of the enzyme that is distinct from the histamine and S-adenosylmethionine binding sites. This region is located within a structural domain of the protein that is not well conserved among related enzymes. Previous attempts to identify small molecule inhibitors of HNMT have relied on virtual screening using molecular modeling. However, most of these studies have been carried out using the human HNMT isoform hHNMT. In the present study, a homology model of the bovine isoform bHNMT is used in
+Ground truth:
+atherosclerosis, hyperlipidemia, stroke, heart attack, xanthomas, lipids incorrectly metabolize

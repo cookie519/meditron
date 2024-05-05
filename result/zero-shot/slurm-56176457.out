@@ -1,0 +1,27 @@
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Reloading llama model, unpatching flash attention
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:31,  4.52s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:06<00:19,  3.25s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:08<00:11,  2.38s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:09<00:07,  1.95s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:10<00:05,  1.70s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:12<00:03,  1.56s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:13<00:01,  1.49s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:13<00:00,  1.09s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:13<00:00,  1.71s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/bitsandbytes/nn/modules.py:426: UserWarning: Input type into Linear4bit is torch.float16, but bnb_4bit_compute_dtype=torch.float32 (default). This will lead to slow inference or training speed.
+  warnings.warn(
+Dataset({
+    features: ['filename', 'context', 'response', 'category'],
+    num_rows: 490
+})
+Prompt:
+### Task: 
+Extract the exact name or names of rare diseases from the input text and output them in a list. only list the exact name from the text, do not explain.
+### Definition:
+Rare diseases are defined as diseases that affect a small number of people compared to the general population.
+### Input Text: 
+The symptoms of Bernard-Soulier syndrome, which are typically apparent at birth and continue throughout life, may include the tendency to bleed excessively from cuts and other injuries, nosebleeds (epistaxis), and/or an unusually heavy menstrual flow in women. Some babies and children with BSS have no symptoms and the disorder does not present until adult life. People with this disease also bruise easily and the bruises tend to linger. Bleeding from very small blood vessels under the skin (subcutaneous) may cause small or widespread areas of small red or purple colored spots (purpura or petechiae). Bernard-Soulier syndrome is a rare bleeding disorder that affects males and females in equal numbers. Recent estimates suggest that Bernard Soulier syndrome affects 1 in a million people. More than 200 cases have been reported worldwide. The diagnosis of Bernard-Soulier syndrome is made by a combination of blood testing to reveal whether platelets are at abnormally low levels (thrombocytopenia), microscopic examination to determine the presence of abnormally large platelets and irregularly shaped platelets, and a test called ‘flow cytometry, which is able to measure the level of expression of the missing protein ion the outside of platelets affected by Bernard-Soulier syndrome. In recent years, most families are offered molecular genetic testing to identify which gene carries the mutations.
+### Output:
+
+Generated:
+ 
+Output a list of the exact name of the rare disease.
+### Example: 
+<Example> <Task 1> </Task 1> <Input> I'm reading the text: </Input> <Text> The symptoms of Bernard-Soulier syndrome, which are typically apparent at birth and continue throughout life, may include the tendency to bleed excessively from cuts and other injuries, nosebleeds (epistaxis), and/or an unusually heavy menstrual flow in women. Some babies and children with BSS have no symptoms and the disorder does not present until adult life. People with this disease also bruise easily and the bruises tend to linger. Bleeding from very small blood vessels under the skin (subcutaneous) may cause small or widespread areas of small red or purple colored spots (purpura or petechiae). Bernard-S
+Ground truth:
+BSS, Bernard-Soulier syndrome, Bernard Soulier syndrome
