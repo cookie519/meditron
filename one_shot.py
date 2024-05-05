@@ -70,7 +70,7 @@ Signs are defined as physical or mental problems that can be measured from tests
 
 sample = dataset[randrange(len(dataset))]
 
-prompt = one_shot_prompt(example, sample)
+prompt = one_shot_prompt(sample)
 
 input_ids = tokenizer(prompt, return_tensors="pt", truncation=True).input_ids.cuda()
 outputs = model.generate(input_ids=input_ids, pad_token_id=tokenizer.pad_token_id, max_new_tokens=200, do_sample=True, top_p=0.9, temperature=0.9)
