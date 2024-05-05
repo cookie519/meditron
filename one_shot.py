@@ -10,7 +10,7 @@ from random import randrange
 #importlib.reload(transformers.models.llama.modeling_llama)
  
 # load base LLM model and tokenizer
-model_dir = "/scratch/gpfs/jx0800/meditron-7b"
+model_dir = "/scratch/gpfs/jx0800/Meta-Llama-3-8B-Instruct"#meditron-7b
 model = AutoModelForCausalLM.from_pretrained(
     model_dir,
     low_cpu_mem_usage=True,
