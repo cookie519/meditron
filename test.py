@@ -17,6 +17,8 @@ model = AutoPeftModelForCausalLM.from_pretrained(
     load_in_4bit=True,
 )
 tokenizer = AutoTokenizer.from_pretrained(output_dir)
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
 
 
 from datasets import load_dataset
@@ -62,7 +64,7 @@ results = []
 for sample in dataset:
     prompt = get_prompt(sample)
     input_ids = tokenizer(prompt, return_tensors="pt", truncation=True).input_ids.cuda()
-    outputs = model.generate(input_ids=input_ids, max_new_tokens=200, do_sample=True, top_p=0.9, temperature=0.9)
+    outputs = model.generate(input_ids=input_ids, pad_token_id=tokenizer.pad_token_id, max_new_tokens=200, do_sample=True, top_p=0.9, temperature=0.9)
     generated = tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0][len(prompt):]
     results.append(generated)
     print(sample['response'])
