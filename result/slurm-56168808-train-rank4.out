@@ -12,7 +12,17 @@ In North America, the incidence of nontuberculous mycobacterial lung disease is 
 ### Output:
 NTM infection, NTM infections, nontuberculous mycobacterial lung disease
 
-Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:31,  4.50s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:07<00:23,  3.84s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:11<00:17,  3.59s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:14<00:14,  3.59s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:18<00:10,  3.58s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:21<00:07,  3.54s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:25<00:03,  3.55s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:25<00:00,  2.62s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:25<00:00,  3.25s/it]
+
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:31,  4.50s/it]
+Loading checkpoint shards:  25%|██▌       | 2/8 [00:07<00:23,  3.84s/it]
+Loading checkpoint shards:  38%|███▊      | 3/8 [00:11<00:17,  3.59s/it]
+Loading checkpoint shards:  50%|█████     | 4/8 [00:14<00:14,  3.59s/it]
+Loading checkpoint shards:  62%|██████▎   | 5/8 [00:18<00:10,  3.58s/it]
+Loading checkpoint shards:  75%|███████▌  | 6/8 [00:21<00:07,  3.54s/it]
+Loading checkpoint shards:  88%|████████▊ | 7/8 [00:25<00:03,  3.55s/it]
+Loading checkpoint shards: 100%|██████████| 8/8 [00:25<00:00,  2.62s/it]
+Loading checkpoint shards: 100%|██████████| 8/8 [00:25<00:00,  3.25s/it]
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
 /home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
