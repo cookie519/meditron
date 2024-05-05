@@ -9,7 +9,7 @@ print("Reloading llama model, unpatching flash attention")
 importlib.reload(transformers.models.llama.modeling_llama)
  
 # load base LLM model and tokenizer
-output_dir = "/scratch/gpfs/jx0800/finetuned"
+output_dir = "/scratch/gpfs/jx0800/finetuned_r8"
 model = AutoPeftModelForCausalLM.from_pretrained(
     output_dir,
     low_cpu_mem_usage=True,
@@ -72,7 +72,7 @@ for sample in dataset:
 # Saving results back to CSV
 out = pd.DataFrame(dataset)
 out['output'] = results
-out.to_csv("/scratch/gpfs/jx0800/data/test_out2.csv", index=False)
+out.to_csv("/scratch/gpfs/jx0800/data/test_out3.csv", index=False)
 print("All data processed and saved.")
 
 #print(f"Prompt:\n{prompt}\n")
