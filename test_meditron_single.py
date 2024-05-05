@@ -11,13 +11,14 @@ from random import randrange
  
 # load base LLM model and tokenizer
 model_dir = "/scratch/gpfs/jx0800/meditron-7b"
-#model = AutoModelForCausalLM.from_pretrained(
-#    model_dir,
-#    low_cpu_mem_usage=True,
-#    torch_dtype=torch.float16,
-#    load_in_4bit=True,
-#)
-model = AutoModelForCausalLM.from_pretrained(model_dir)
+model = AutoModelForCausalLM.from_pretrained(
+    model_dir,
+    low_cpu_mem_usage=True,
+    torch_dtype=torch.float16,
+    load_in_4bit=True,
+    attn_implementation="flash_attention_2",
+)
+#model = AutoModelForCausalLM.from_pretrained(model_dir)
 tokenizer = AutoTokenizer.from_pretrained(model_dir)
 #if tokenizer.pad_token is None:
 #    print("tokenizer.pad_token = tokenizer.eos_token")
