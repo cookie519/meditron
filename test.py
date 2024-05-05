@@ -72,7 +72,7 @@ for sample in dataset:
 # Saving results back to CSV
 out = pd.DataFrame(dataset)
 out['output'] = results
-out.to_csv("/scratch/gpfs/jx0800/data/test_out1.csv", index=False)
+out.to_csv("/scratch/gpfs/jx0800/data/test_out2.csv", index=False)
 print("All data processed and saved.")
 
 #print(f"Prompt:\n{prompt}\n")
