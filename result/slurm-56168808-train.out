@@ -1,0 +1,165 @@
+Dataset({
+    features: ['filename', 'context', 'response', 'category'],
+    num_rows: 1783
+})
+### Task: 
+Extract the exact name or names of rare diseases from the input text and output them in a list.
+### Definition:
+Rare diseases are defined as diseases that affect a small number of people compared to the general population.
+### Input Text: 
+In North America, the incidence of nontuberculous mycobacterial lung disease is rising, particularly among the elderly. Generally, NTM infection is more common in Caucasians, Asians and individuals with a compromised immune system. The incidence and prevalence rates reported in the medical literature varies and because many cases may go undiagnosed or misdiagnosed determining the true frequency of NTM infections in the general population is difficult.
+
+### Output:
+NTM infection, NTM infections, nontuberculous mycobacterial lung disease
+
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:31,  4.50s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:07<00:23,  3.84s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:11<00:17,  3.59s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:14<00:14,  3.59s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:18<00:10,  3.58s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:21<00:07,  3.54s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:25<00:03,  3.55s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:25<00:00,  2.62s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:25<00:00,  3.25s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+The input hidden states seems to be silently casted in float32, this might be related to the fact you have upcasted embedding or layer norm layers in float32. We will cast back the input in torch.bfloat16.
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/jx0800/.conda/envs/meditron/lib/python3.10/site-packages/peft/utils/save_and_load.py:195: UserWarning: Could not find a config file in /scratch/gpfs/jx0800/meditron-7b - will assume that the vocabulary was not modified.
+  warnings.warn(
+model loaded
+tokenizer loaded
+model prepared
+trainer set up
+training start
+{'loss': 1.2972, 'grad_norm': 0.20918738842010498, 'learning_rate': 0.0002, 'epoch': 0.3389830508474576}
+{'loss': 1.1738, 'grad_norm': 0.23923076689243317, 'learning_rate': 0.0002, 'epoch': 0.6779661016949152}
+{'loss': 1.0887, 'grad_norm': 0.31307315826416016, 'learning_rate': 0.0002, 'epoch': 1.0169491525423728}
+{'loss': 1.0494, 'grad_norm': 0.20649085938930511, 'learning_rate': 0.0002, 'epoch': 1.3559322033898304}
+{'loss': 1.0315, 'grad_norm': 0.20750170946121216, 'learning_rate': 0.0002, 'epoch': 1.694915254237288}
+{'loss': 1.0076, 'grad_norm': 0.2552931606769562, 'learning_rate': 0.0002, 'epoch': 2.0338983050847457}
+{'loss': 0.9756, 'grad_norm': 0.31585222482681274, 'learning_rate': 0.0002, 'epoch': 2.3728813559322033}
+{'loss': 0.9762, 'grad_norm': 0.3391076922416687, 'learning_rate': 0.0002, 'epoch': 2.711864406779661}
+{'loss': 0.9582, 'grad_norm': 0.34494802355766296, 'learning_rate': 0.0002, 'epoch': 3.0508474576271185}
+{'loss': 0.9203, 'grad_norm': 0.41595858335494995, 'learning_rate': 0.0002, 'epoch': 3.389830508474576}
+{'loss': 0.9115, 'grad_norm': 0.49659669399261475, 'learning_rate': 0.0002, 'epoch': 3.7288135593220337}
+{'loss': 0.8814, 'grad_norm': 0.4390295445919037, 'learning_rate': 0.0002, 'epoch': 4.067796610169491}
+{'loss': 0.8556, 'grad_norm': 0.5546764731407166, 'learning_rate': 0.0002, 'epoch': 4.406779661016949}
+{'loss': 0.859, 'grad_norm': 0.5943707823753357, 'learning_rate': 0.0002, 'epoch': 4.745762711864407}
+{'loss': 0.8184, 'grad_norm': 0.630966305732727, 'learning_rate': 0.0002, 'epoch': 5.084745762711864}
+{'loss': 0.8143, 'grad_norm': 0.6791965365409851, 'learning_rate': 0.0002, 'epoch': 5.423728813559322}
+{'loss': 0.7763, 'grad_norm': 0.7103132009506226, 'learning_rate': 0.0002, 'epoch': 5.762711864406779}
+{'loss': 0.789, 'grad_norm': 0.904701292514801, 'learning_rate': 0.0002, 'epoch': 6.101694915254237}
+{'loss': 0.7369, 'grad_norm': 0.7402040958404541, 'learning_rate': 0.0002, 'epoch': 6.440677966101695}
+{'loss': 0.7361, 'grad_norm': 0.8443003296852112, 'learning_rate': 0.0002, 'epoch': 6.779661016949152}
+{'loss': 0.7223, 'grad_norm': 0.8783673048019409, 'learning_rate': 0.0002, 'epoch': 7.11864406779661}
+{'loss': 0.6958, 'grad_norm': 1.0435644388198853, 'learning_rate': 0.0002, 'epoch': 7.4576271186440675}
+{'loss': 0.6673, 'grad_norm': 0.9725087285041809, 'learning_rate': 0.0002, 'epoch': 7.796610169491525}
+{'loss': 0.6491, 'grad_norm': 1.5095031261444092, 'learning_rate': 0.0002, 'epoch': 8.135593220338983}
+{'loss': 0.6383, 'grad_norm': 1.2626404762268066, 'learning_rate': 0.0002, 'epoch': 8.474576271186441}
+{'loss': 0.6205, 'grad_norm': 1.2709453105926514, 'learning_rate': 0.0002, 'epoch': 8.813559322033898}
+{'loss': 0.5877, 'grad_norm': 1.2376750707626343, 'learning_rate': 0.0002, 'epoch': 9.152542372881356}
+{'loss': 0.5727, 'grad_norm': 1.7577546834945679, 'learning_rate': 0.0002, 'epoch': 9.491525423728813}
+{'loss': 0.5849, 'grad_norm': 1.3782001733779907, 'learning_rate': 0.0002, 'epoch': 9.830508474576272}
+{'loss': 0.5525, 'grad_norm': 1.6542956829071045, 'learning_rate': 0.0002, 'epoch': 10.169491525423728}
+{'loss': 0.5346, 'grad_norm': 1.7392009496688843, 'learning_rate': 0.0002, 'epoch': 10.508474576271187}
+{'loss': 0.5293, 'grad_norm': 1.7404723167419434, 'learning_rate': 0.0002, 'epoch': 10.847457627118644}
+{'loss': 0.5035, 'grad_norm': 1.4370691776275635, 'learning_rate': 0.0002, 'epoch': 11.186440677966102}
+{'loss': 0.4938, 'grad_norm': 1.497372031211853, 'learning_rate': 0.0002, 'epoch': 11.525423728813559}
+{'loss': 0.4872, 'grad_norm': 1.6155023574829102, 'learning_rate': 0.0002, 'epoch': 11.864406779661017}
+{'loss': 0.4529, 'grad_norm': 2.01615571975708, 'learning_rate': 0.0002, 'epoch': 12.203389830508474}
+{'loss': 0.443, 'grad_norm': 1.5792714357376099, 'learning_rate': 0.0002, 'epoch': 12.542372881355933}
+{'loss': 0.4405, 'grad_norm': 1.639564871788025, 'learning_rate': 0.0002, 'epoch': 12.88135593220339}
+{'loss': 0.4372, 'grad_norm': 1.6171387434005737, 'learning_rate': 0.0002, 'epoch': 13.220338983050848}
+{'loss': 0.4094, 'grad_norm': 1.7992186546325684, 'learning_rate': 0.0002, 'epoch': 13.559322033898304}
+{'loss': 0.4021, 'grad_norm': 2.559258222579956, 'learning_rate': 0.0002, 'epoch': 13.898305084745763}
+{'loss': 0.3976, 'grad_norm': 1.7387566566467285, 'learning_rate': 0.0002, 'epoch': 14.23728813559322}
+{'loss': 0.3717, 'grad_norm': 2.8578035831451416, 'learning_rate': 0.0002, 'epoch': 14.576271186440678}
+{'loss': 0.3714, 'grad_norm': 1.7695833444595337, 'learning_rate': 0.0002, 'epoch': 14.915254237288135}
+{'loss': 0.3467, 'grad_norm': 1.8406140804290771, 'learning_rate': 0.0002, 'epoch': 15.254237288135593}
+{'loss': 0.3435, 'grad_norm': 2.0746383666992188, 'learning_rate': 0.0002, 'epoch': 15.59322033898305}
+{'loss': 0.35, 'grad_norm': 2.7637810707092285, 'learning_rate': 0.0002, 'epoch': 15.932203389830509}
+{'loss': 0.3254, 'grad_norm': 1.841536521911621, 'learning_rate': 0.0002, 'epoch': 16.271186440677965}
+{'loss': 0.3226, 'grad_norm': 1.9570772647857666, 'learning_rate': 0.0002, 'epoch': 16.610169491525422}
+{'loss': 0.3291, 'grad_norm': 2.2191784381866455, 'learning_rate': 0.0002, 'epoch': 16.949152542372882}
+{'loss': 0.3014, 'grad_norm': 1.9582465887069702, 'learning_rate': 0.0002, 'epoch': 17.28813559322034}
+{'loss': 0.2982, 'grad_norm': 1.9193578958511353, 'learning_rate': 0.0002, 'epoch': 17.627118644067796}
+{'loss': 0.2977, 'grad_norm': 1.8998608589172363, 'learning_rate': 0.0002, 'epoch': 17.966101694915253}
+{'loss': 0.2755, 'grad_norm': 1.6333340406417847, 'learning_rate': 0.0002, 'epoch': 18.305084745762713}
+{'loss': 0.2761, 'grad_norm': 1.8857451677322388, 'learning_rate': 0.0002, 'epoch': 18.64406779661017}
+{'loss': 0.2859, 'grad_norm': 2.029261589050293, 'learning_rate': 0.0002, 'epoch': 18.983050847457626}
+{'loss': 0.2621, 'grad_norm': 1.9799658060073853, 'learning_rate': 0.0002, 'epoch': 19.322033898305083}
+{'loss': 0.2586, 'grad_norm': 2.185847043991089, 'learning_rate': 0.0002, 'epoch': 19.661016949152543}
+{'train_runtime': 4611.726, 'train_samples_per_second': 1.514, 'train_steps_per_second': 0.126, 'train_loss': 0.6119863555349153, 'epoch': 19.661016949152543}
+model saved
