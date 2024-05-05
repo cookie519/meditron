@@ -16,7 +16,7 @@ model = AutoPeftModelForCausalLM.from_pretrained(
     torch_dtype=torch.float16,
     load_in_4bit=True,
 )
-tokenizer = AutoTokenizer.from_pretrained(output_dir)
+tokenizer = AutoTokenizer.from_pretrained(output_dir, max_length=2048)
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 
