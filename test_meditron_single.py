@@ -6,18 +6,19 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import pandas as pd
 from random import randrange
 
-print("Reloading llama model, unpatching flash attention")
-importlib.reload(transformers.models.llama.modeling_llama)
+#print("Reloading llama model, unpatching flash attention")
+#importlib.reload(transformers.models.llama.modeling_llama)
  
 # load base LLM model and tokenizer
 model_dir = "/scratch/gpfs/jx0800/meditron-7b"
-model = AutoModelForCausalLM.from_pretrained(
-    model_dir,
-    low_cpu_mem_usage=True,
-    torch_dtype=torch.float16,
-    load_in_4bit=True,
-)
-tokenizer = AutoTokenizer.from_pretrained(model_dir, max_length=2048)
+#model = AutoModelForCausalLM.from_pretrained(
+#    model_dir,
+#    low_cpu_mem_usage=True,
+#    torch_dtype=torch.float16,
+#    load_in_4bit=True,
+#)
+model = AutoModelForCausalLM.from_pretrained(model_dir)
+tokenizer = AutoTokenizer.from_pretrained(model_dir)
 #if tokenizer.pad_token is None:
 #    print("tokenizer.pad_token = tokenizer.eos_token")
 #    tokenizer.pad_token = tokenizer.eos_token
